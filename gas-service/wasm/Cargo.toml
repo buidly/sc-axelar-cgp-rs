@@ -1,5 +1,5 @@
 [package]
-name = "gateway-wasm"
+name = "gas-service-wasm"
 version = "0.0.0"
 authors = [ "you",]
 edition = "2018"
@@ -20,7 +20,7 @@ lto = true
 debug = false
 panic = "abort"
 
-[dependencies.gateway]
+[dependencies.gas-service]
 path = ".."
 
 [dependencies.multiversx-sc-wasm-adapter]

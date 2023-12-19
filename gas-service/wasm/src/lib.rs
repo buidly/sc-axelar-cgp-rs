@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                            7
+// Endpoints:                           11
 // Async Callback (empty):               1
-// Total number of exported functions:   9
+// Total number of exported functions:  13
 
 #![no_std]
 
@@ -19,16 +19,20 @@ multiversx_sc_wasm_adapter::allocator!();
 multiversx_sc_wasm_adapter::panic_handler!();
 
 multiversx_sc_wasm_adapter::endpoints! {
-    gateway
+    gas_service
     (
         init => init
-        callContract => call_contract
-        validateContractCall => validate_contract_call
-        execute => execute
-        isCommandExecuted => is_command_executed
-        isContractCallApproved => is_contract_call_approved
-        chain_id => chain_id
-        authModule => auth_module
+        payGasForContractCall => pay_gas_for_contract_call
+        payNativeGasForContractCall => pay_native_gas_for_contract_call
+        payGasForExpressCall => pay_gas_for_express_call
+        payNativeGasForExpressCall => pay_native_gas_for_express_call
+        addGas => add_gas
+        addNativeGas => add_native_gas
+        addExpressGas => add_express_gas
+        addNativeExpressGas => add_native_express_gas
+        collectFees => collect_fees
+        refund => refund
+        gas_collector => gas_collector
     )
 }
 
