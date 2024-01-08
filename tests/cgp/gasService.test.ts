@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, test } from 'vitest';
 import { assertAccount, e, SContract, SWallet, SWorld } from 'xsuite';
-import { TOKEN_ID } from './helpers';
+import { TOKEN_ID } from '../helpers';
 
 let world: SWorld;
 let deployer: SWallet;
@@ -500,7 +500,7 @@ test('Collect fees invalid address', async () => {
     gasLimit: 10_000_000,
     funcName: 'collectFees',
     funcArgs: [
-      e.Bytes('0000000000000000000000000000000000000000000000000000000000000000'),
+      e.TopBuffer('0000000000000000000000000000000000000000000000000000000000000000'),
 
       e.U32(1),
       e.Str(TOKEN_ID),
@@ -685,7 +685,7 @@ test('Refund invalid address', async () => {
     funcArgs: [
       e.Str('txHash'),
       e.U(1),
-      e.Bytes('0000000000000000000000000000000000000000000000000000000000000000'),
+      e.TopBuffer('0000000000000000000000000000000000000000000000000000000000000000'),
       e.Str(TOKEN_ID),
       e.U(1_000),
     ],
